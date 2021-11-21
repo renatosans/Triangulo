@@ -8,10 +8,10 @@
 
 
 
-@for (int i = 0; i < 20; i++)
+@for (int i = 0; i < 45; i++)
 {
     
-    coordenada = new Coordenada(GetRandom()*4 -90, GetRandom()*2 -90);
+    coordenada = new Coordenada(GetRandom()*5 -90, GetRandom()*3 -90);
     cor = new CorRGB(GetRandom(), GetRandom(), GetRandom());
     raio = GetRandom()/2 + 25;
     <Circulo coordenada=@coordenada cor=@cor raio=@raio></Circulo>
