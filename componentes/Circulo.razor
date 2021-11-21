@@ -1,0 +1,38 @@
+<style>
+    .circle{
+        position: fixed;
+        border-style: solid;
+        border-width: 10px;
+        border-radius: 50%;
+        background-color: blueviolet;
+        opacity: 50%;
+    }
+
+</style>
+
+<div class='circle' style=@GetCircleAttribs()></div>
+
+@code{
+    [Parameter]
+    public Coordenada coordenada { get; set; }
+
+    [Parameter]
+    public CorRGB cor { get; set; }
+
+    [Parameter]
+    public int raio { get; set; }
+
+    private String GetDiametro()
+    {
+        return Convert.ToString(raio * 2) + "px";
+    }
+
+    private String GetDimensoes(){
+        return ";left:" + coordenada.GetX() + ";top:" + coordenada.GetY() + ";width:" + @GetDiametro() + ";height:" + @GetDiametro();
+    }
+
+    private String GetCircleAttribs(){
+        String borderColor = "border-color: rgb(" + @cor.R + ", " + @cor.G + ", " + @cor.B + ")";
+        return borderColor + GetDimensoes();
+    }
+}
